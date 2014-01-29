@@ -12,24 +12,31 @@ import sys
 pygame.init()
 
 speed=[0,0]
-alienspeed=[0,2]
+alienspeed=[0,1]
 black = 0,0,0
 white = 255,255,255
+grey = 205,205,193
+green = 0,205,0
 
 size=width,height=320,240
 
 screen = pygame.display.set_mode(size)
 
-ball = pygame.image.load("cat.gif")
-ballrect=ball.get_rect()
+cat = pygame.image.load("cat.gif")
+w,h=cat.get_size()
+cat = pygame.transform.scale(cat,(int(w*0.25),int (h*0.25)))
+
+catrect=cat.get_rect()
 
 alien=pygame.image.load("alien.gif")
+w,h=alien.get_size()
+alien = pygame.transform.scale(alien,(int(w*0.25),int (h*0.25)))
 alienrect=alien.get_rect()
 
 furball=pygame.image.load("furball.gif")
 furballrect=furball.get_rect()
 
- 
+  
 # Open SPI bus
 spi = spidev.SpiDev()
 spi.open(0,0)
@@ -80,7 +87,7 @@ while True:
       
 
     # move the cat sprite
-    ballrect=ballrect.move(speed)
+    catrect=catrect.move(speed)
 
     # move the alien
 
@@ -92,12 +99,12 @@ while True:
 
     # update joystick text  
     location=("X: {} Y: {} ".format(joy_x_value,joy_y_value))
-    label=myfont.render(location,1,white)
+    label=myfont.render(location,1,green)
   
     # update screen
-    screen.fill(black)
+    screen.fill(grey)
     screen.blit(alien,alienrect)
     screen.blit(label,(10,10))
-    screen.blit(ball,ballrect)
+    screen.blit(cat,catrect)
     pygame.display.flip()
     
