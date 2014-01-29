@@ -20,13 +20,13 @@ size=width,height=320,240
 
 screen = pygame.display.set_mode(size)
 
-ball = pygame.image.load("ball.gif")
+ball = pygame.image.load("cat.gif")
 ballrect=ball.get_rect()
 
-alien=pygame.image.load("ball.gif")
+alien=pygame.image.load("alien.gif")
 alienrect=alien.get_rect()
 
-furball=pygame.image.load("ball.gif")
+furball=pygame.image.load("furball.gif")
 furballrect=furball.get_rect()
 
  
