@@ -56,7 +56,7 @@ while True:
       joy_button_a_value=ReadChannel(joy_button_a)
 
     if joy_button_a_value==1:
-      print ("Button Pressed {}".format(joy_button_a_value))
+    #  print ("Button Pressed {}".format(joy_button_a_value))
       device.emit(uinput.BTN_JOYSTICK,1)
     else:
     #  print ("Button Not Pressed {}".format(joy_button_value))
